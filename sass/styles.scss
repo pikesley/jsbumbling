@@ -1,0 +1,13 @@
+$bezier: cubic-bezier(0.47, 1.64, 0.41, 0.8);
+
+body {
+  background-color: rgba(255, 227, 170);
+}
+
+.box {
+  position: absolute;
+  transition-property: all;
+  transition-duration: 2s;
+  transition-timing-function: $bezier;
+  border-radius: 10%;
+}

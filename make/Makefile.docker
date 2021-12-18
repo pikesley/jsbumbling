@@ -1,0 +1,3 @@
+.PHONY: sass
+sass:
+	sass --watch sass:static/css

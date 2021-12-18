@@ -1,0 +1,9 @@
+{
+  "name": "jsbumbling",
+  "version": "0.0.1",
+  "author": "pikesley",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.45.0"
+  }
+}
