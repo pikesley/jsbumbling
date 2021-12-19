@@ -55,6 +55,8 @@ let yeet = function () {
     box.style.backgroundColor =
       colours[Math.floor(Math.random() * colours.length)];
 
+    box.style.opacity = Math.random() / 2 + 0.25;
+
     box.style.transform = `
     translateX(${addPX(deltaX)}) 
     translateY(${addPX(deltaY)}) 
