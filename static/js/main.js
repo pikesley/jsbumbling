@@ -23,8 +23,6 @@ let addPX = function (value) {
   return `${value}px`;
 };
 
-let coord = function (value) {};
-
 let populate = function () {
   for (let i = 0; i < boxes; i++) {
     let box = document.createElement("div");
