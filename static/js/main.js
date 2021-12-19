@@ -1,11 +1,18 @@
 import { colours } from "./palette.js";
 
-let boxes = 16;
+let boxes = new URLSearchParams(document.location.search).get("boxes") || 12;
+if (boxes > 32) {
+  boxes = 32;
+}
+
 let scaleFactor = 4;
 let minSize = 64;
+let spinniness = 4;
+
 let body = document.body;
-let width = window.screen.width;
-let height = window.screen.height;
+
+let width = document.documentElement.clientWidth;
+let height = document.documentElement.clientHeight;
 
 let centre = {
   x: width / 2,
@@ -28,13 +35,11 @@ let populate = function () {
     box.style.left = addPX(centre.x);
     box.style.height = box.style.width = "1px";
 
-    box.style.backgroundColor = "blue";
-
     body.appendChild(box);
   }
 };
 
-let bounce = function () {
+let yeet = function () {
   document.querySelectorAll(".box").forEach(function (box) {
     let side = (Math.random() * width) / scaleFactor + minSize;
     let top = Math.random() * height;
@@ -43,15 +48,21 @@ let bounce = function () {
     let deltaX = left - centre.x;
     let deltaY = top - centre.y;
 
+    let rotations = Math.round(Math.random() * spinniness) / 4;
+
     box.style.backgroundColor =
       colours[Math.floor(Math.random() * colours.length)];
 
     box.style.transform = `
     translateX(${addPX(deltaX)}) 
     translateY(${addPX(deltaY)}) 
+    rotateZ(${rotations}turn)
     scale(${side})`;
   });
 };
 
 populate();
-setInterval(bounce, 2100);
+
+setInterval(function () {
+  yeet();
+}, 2000);
