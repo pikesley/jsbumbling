@@ -34,6 +34,10 @@ let populate = function () {
     box.style.height = box.style.width = "1px";
 
     body.appendChild(box);
+
+    box.addEventListener("click", function () {
+      box.style.backgroundColor = "red";
+    });
   }
 };
 
